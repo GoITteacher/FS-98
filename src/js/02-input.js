@@ -1,4 +1,4 @@
 /*
- * - Ввод пользовователя
- * - Методы window.confirm() и window.prompt()
+ * - Введення користувача
+ * - Методи window.confirm() та window.prompt()
  */
