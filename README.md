@@ -3,7 +3,7 @@
 ## Вступ
 
 - Поставити **Prettier** та вбити **Beautify** у кого є 🔥
-- Все ще використовуємо ** LiveServer **
+- Все ще використовуємо **LiveServer**
 - Відступи 2 або 4 пробіли з **Prettier**
 - Підсвічування дужок з
   [Bracket Pair Colorizer 2](https://marketplace.visualstudio.com/items?itemName=CoenraadS.bracket-pair-colorizer-2)
