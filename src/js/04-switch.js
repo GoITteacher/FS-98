@@ -2,7 +2,7 @@
  * Оператор switch
  */
 
-const username = "Mango";
+// const username = 'Mango';
 
 /**
  * Виконай рефакторинг коду задачі використовуючи switch.
@@ -15,15 +15,31 @@ const username = "Mango";
 
 const daysUntilDeadline = 5;
 
-if (daysUntilDeadline === 0) {
-  console.log("Today");
-} else if (daysUntilDeadline === 1) {
-  console.log("Tomorrow");
-} else if (daysUntilDeadline === 2) {
-  console.log("Overmorrow");
-} else {
-  console.log("Date in the future");
-}
+// if (daysUntilDeadline === 0) {
+//   console.log('Today');
+// } else if (daysUntilDeadline === 1) {
+//   console.log('Tomorrow');
+// } else if (daysUntilDeadline === 2) {
+//   console.log('Overmorrow');
+// } else {
+//   console.log('Date in the future');
+// }
+
+// let message;
+
+// switch (daysUntilDeadline) {
+//   case 0:
+//     message = 'Today';
+//     break;
+//   case 1:
+//     message = 'Tomorrow';
+//     break;
+//   case 2:
+//     message = 'Overmorrow';
+//     break;
+//   default:
+//     message = 'Date in the future';
+// }
 
 /*
  * Напиши скрипт выбора опции доставки товара.
@@ -36,7 +52,24 @@ if (daysUntilDeadline === 0) {
  * - 'Вам перезвонит менеджер'
  */
 
-const option = 1;
-let message = "";
+const option = 5;
+let message = '';
+
+switch (option) {
+  case 1:
+    message = 'Вы сможете забрать товар завтра с 12:00 в нашем офисе';
+    break;
+  case 2:
+    message = 'Курьер доставит заказ завтра с 9:00 до 18:00';
+    break;
+  case 3:
+    message = 'Посылка будет отправлена сегодня';
+    break;
+  default:
+    message = 'Вам перезвонит менеджер';
+  case 5:
+    message = 'Hello';
+    break;
+}
 
 console.log(message);

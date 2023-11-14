@@ -4,11 +4,15 @@
  * то виводь рядок "14 г.", без хвилин.
  */
 
-const hours = 14;
-const minutes = 26;
-let timestring;
+function getTime(hours, minutes) {
+  let timestring = `${hours} г.`;
 
-console.log(timestring);
+  if (minutes !== 0) {
+    timestring = `${hours} г. ${minutes} хв.`;
+  }
+
+  return timestring;
+}
 
 /**
  * Напиши скрипт для відображення часу дедлайну здачі проекту. Використовуй if...else.
@@ -20,3 +24,13 @@ console.log(timestring);
  */
 
 const daysUntilDeadline = 5;
+
+// if (daysUntilDeadline === 0) {
+//   console.log('Today');
+// } else if (daysUntilDeadline === 1) {
+//   console.log('Tomorrow');
+// } else if (daysUntilDeadline === 2) {
+//   console.log('Overmorrow');
+// } else {
+//   console.log('Date in the future');
+// }
