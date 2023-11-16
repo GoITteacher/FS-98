@@ -9,4 +9,4 @@
  *  - trim
  */
 
-const username = "Jacob Mercer";
+const username = 'Jacob Mercer';
