@@ -5,21 +5,37 @@
  * - Обчислювальні властивості
  */
 
-const username = "Mango";
-const email = "mango@mail.com";
-
-const credentials = {};
-
-console.log(credentials);
-console.log(credentials.username);
-console.log(credentials.email);
+// const username = 'Mango';
+// const email = 'mango@mail.com';
+// const password = 'Test';
+// const credentials = {
+//   username: username,
+//   email,
+//   password,
+// };
+//
+// console.log(credentials);
 
 /**
  * -------------------------
  */
 
-const inputName = "color";
+// const key = 'userName';
 
-const colorPickerData = {};
+// for (let i = 0; i < 10; i++) {
+//   const obj = {
+//     ['propUser' + i]: 'Vasya',
+//   };
+//   console.log(obj);
+// }
 
-console.log(colorPickerData);
+// ======================
+
+// const key = prompt('Enter prop');
+// const value = prompt('Enter value');
+
+// const obj = {
+//   [key]: value,
+// };
+
+// console.log(obj);
