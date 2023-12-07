@@ -1,6 +1,7 @@
 # MacOS attrs
 .DS_Store
-
+.parcel-cache
+.cache
 # Logs
 logs
 *.log
