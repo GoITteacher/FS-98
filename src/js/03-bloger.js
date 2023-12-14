@@ -11,7 +11,24 @@
  * - Додай метод updatePostCount(value), який у параметрі value приймає кількість постів, які потрібно додати користувачеві.
  */
 
-const mango = new User({
+class Blogger {
+  constructor({ name, age, numberOfPosts, topics }) {
+    this.email = name;
+    this.age = age;
+    this.numberOfPosts = numberOfPosts;
+    this.topics = topics;
+  }
+
+  getInfo() {
+    return `User ${this.email} is ${this.age} years old and has ${this.numberOfPosts} posts.`;
+  }
+
+  updatePostCount(value) {
+    this.numberOfPosts += value;
+  }
+}
+
+const mango = new Blogger({
   name: 'mango@mail.com',
   age: 24,
   numberOfPosts: 20,
@@ -21,7 +38,7 @@ console.log(mango.getInfo()); // User mango@mail.com is 24 years old and has 20 
 mango.updatePostCount(5);
 console.log(mango.getInfo()); // User mango@mail.com is 24 years old and has 25 posts
 
-const poly = new User({
+const poly = new Blogger({
   name: 'poly@mail.com',
   age: 19,
   numberOfPosts: 17,

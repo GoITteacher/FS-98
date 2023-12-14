@@ -3,6 +3,30 @@
  * Оголоси приватні властивості #login та #email, доступ до яких зроби через
  * гетер та сетер login та email.
  */
+class User {
+  #login;
+  #email;
+
+  constructor({ login, email }) {
+    this.#email = email;
+    this.#login = login;
+  }
+
+  get login() {
+    return this.#login;
+  }
+  set login(login) {
+    this.#login = login;
+  }
+
+  get email() {
+    return this.#email;
+  }
+  set email(email) {
+    this.#email = email;
+  }
+}
+
 const mango = new User({
   login: 'Mango',
   email: 'mango@dog.woof',
