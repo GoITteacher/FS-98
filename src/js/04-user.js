@@ -27,6 +27,8 @@ class User {
   }
 }
 
+console.dir(User);
+
 const mango = new User({
   login: 'Mango',
   email: 'mango@dog.woof',
