@@ -1,7 +1,10 @@
 # План заняття
 
-- Методи filter, find
-- Методи every, some
-- Метод reduce
-- Метод toSorted
-- Ланцюжки методів
+- while for
+- callback
+- forEach
+- reduce
+- this
+- arrow / func
+- prototype
+- class/constructor
