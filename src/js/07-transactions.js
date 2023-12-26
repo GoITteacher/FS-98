@@ -92,3 +92,24 @@ const transactionHistory = [
 ];
 
 const tableEl = document.querySelector('.js-transaction-table');
+
+function rowTemplate(obj) {
+  return `
+  <tr class="${obj.amount > 500 ? 'valid' : 'invalid'}">
+    <td>${obj.id}</td>
+    <td>${obj.amount}</td>
+    <td>${obj.date}</td>
+    <td>${obj.business}</td>
+    <td>${obj.name}</td>
+    <td>${obj.type}</td>
+    <td>${obj.account}</td>
+  </tr>
+  `;
+}
+
+function render() {
+  const markup = transactionHistory.map(rowTemplate).join('');
+  tableEl.lastElementChild.insertAdjacentHTML('beforeend', markup);
+}
+
+render();

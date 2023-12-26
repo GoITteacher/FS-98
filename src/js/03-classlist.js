@@ -7,8 +7,12 @@
  * - contains
  */
 
-const currentPageUrl = '/contact';
+// const currentPageUrl = '/contact';
+// const liEl = document.querySelector('.site-nav__item');
 
-const linkEl = document.querySelector(
-  `.site-nav__link[href="${currentPageUrl}"]`,
-);
+// liEl.classList.add('site-nav__link--current', 'awdawd', 'bold');
+// liEl.classList.remove('awdawd', 'site-nav__link--current');
+// liEl.classList.toggle('bold');
+// liEl.classList.add('test');
+// liEl.classList.replace('test', 'test1');
+// console.log(liEl.classList.contains('test'));
