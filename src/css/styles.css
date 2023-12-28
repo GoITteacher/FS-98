@@ -24,3 +24,35 @@ input {
   padding-top: 40px;
   padding-bottom: 40px;
 }
+
+.box {
+  width: 100px;
+  height: 100px;
+  background-color: red;
+  position: absolute;
+}
+
+.valid {
+  border: 2px solid green;
+}
+.invalid {
+  border: 2px solid red;
+}
+
+.car {
+  display: flex;
+  flex-direction: column;
+  width: 300px;
+  height: auto;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  border: 1px solid black;
+  padding: 5px;
+}
+
+.car img {
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+}
