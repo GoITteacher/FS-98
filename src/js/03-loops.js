@@ -4,27 +4,46 @@
 
 const users = [
   {
-    name: "Kate",
+    name: 'Kate',
+    age: 123,
   },
   {
-    name: "Alex",
+    name: 'Alex',
+    age: 123,
   },
   {
-    name: "Mark",
+    name: 'Mark',
+    age: 123,
   },
 ];
 
 /**
  * Без деструктуризації
  */
-const names = [];
+/* const names = [];
 
 for (const user of users) {
   names.push(user.name);
 }
 
-console.log(names);
+console.log(names); */
 
 /**
  * З деструктуризацією
  */
+
+/* const names = [];
+
+for (const { name } of users) {
+  names.push(name);
+}
+
+console.log(names); */
+
+/* const names = users.map(({ name }) => {
+  return name;
+});
+
+console.log(names); */
+
+// ==========================
