@@ -16,12 +16,5 @@
   "bugs": {
     "url": "https://github.com/GoITteacher/js-example/issues"
   },
-  "homepage": "https://github.com/GoITteacher/js-example#readme",
-  "devDependencies": {
-    "parcel-bundler": "^1.12.4",
-    "parcel-plugin-handlebars-precompile": "^1.0.2"
-  },
-  "dependencies": {
-    "parcel": "^2.10.3"
-  }
+  "homepage": "https://github.com/GoITteacher/js-example#readme"
 }

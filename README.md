@@ -4,12 +4,16 @@
 
 2. Розберемо:
 
+- node js
+- npm
+  - init
+  - install
+  - dependencies
+  - script
 - Що таке збирач проекту на прикладі [Vite] (https://vitejs.dev/)
-- Пакетний менеджер npm
 - Використання Vite-збірки
   [vanilla-app-template](https://github.com/goitacademy/vanilla-app-template)
   - Створюємо проект на базі збірки з README
-  - npm-скрипти
 
 3. Обговоримо:
 
