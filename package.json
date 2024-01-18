@@ -5,7 +5,7 @@
   "scripts": {
     "start": "parcel src/*.html",
     "build": "parcel build src/*.html --public-url /js-example/",
-    "push": "git add . && git commit -m 'update' && git push"
+    "push": "git add . ; git commit -m 'update'; git push"
   },
   "repository": {
     "type": "git",
