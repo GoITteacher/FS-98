@@ -10,6 +10,7 @@
   - install
   - dependencies
   - script
+  - node-modules
 - Що таке збирач проекту на прикладі [Vite] (https://vitejs.dev/)
 - Використання Vite-збірки
   [vanilla-app-template](https://github.com/goitacademy/vanilla-app-template)
