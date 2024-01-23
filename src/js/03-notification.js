@@ -5,19 +5,25 @@
  * - Не забуваємо чистити таймер
  */
 
-const NOTIFICATION_DELAY = 3000;
+const notification = document.querySelector('.js-alert');
 let timeoutId = null;
-const notification = document.querySelector(".js-alert");
 
-/*
- * Функції
- */
-function onNotificationClick() {}
+setTimeout(() => {
+  showNotification();
+  timeoutId = setTimeout(hideNotification, 5000);
+}, 2000);
+
+notification.addEventListener('click', () => {
+  clearTimeout(timeoutId);
+  hideNotification();
+});
 
 function showNotification() {
-  console.log(
-    "Закриваємо сповіщення автоматично, щоб воно не залишалося відкритим"
-  );
+  console.log('show');
+  notification.classList.add('is-visible');
 }
 
-function hideNotification() {}
+function hideNotification() {
+  console.log('hide');
+  notification.classList.remove('is-visible');
+}
