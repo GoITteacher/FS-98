@@ -20,6 +20,55 @@
  * поле має очищатись, а гра починатись з початку.
  */
 
-const startBtn = document.querySelector(".start-btn");
-const container = document.querySelector(".container");
-const result = document.querySelector(".result");
+const startBtn = document.querySelector('.start-btn');
+const container = document.querySelector('.container');
+const resultEl = document.querySelector('.result');
+
+function createPromise(delay) {
+  const promise = new Promise((resolve, reject) => {
+    setTimeout(() => {
+      const isActive = Math.random() > 0.5;
+      if (isActive) {
+        resolve('🤑');
+      } else {
+        reject('👿');
+      }
+    }, delay);
+  });
+
+  return promise;
+}
+
+startBtn.addEventListener('click', onStartBtnClick);
+
+function onStartBtnClick() {
+  const promises = [];
+  const COUNT = 3;
+  for (let i = 0; i < COUNT; i++) {
+    container.children[i].textContent = '';
+    const promise = createPromise((i + 1) * 100);
+    promises.push(promise);
+
+    promise
+      .then(smile => {
+        container.children[i].textContent = smile;
+      })
+      .catch(smile => {
+        container.children[i].textContent = smile;
+      });
+  }
+
+  Promise.allSettled(promises).then(result => {
+    result = result.map(el => {
+      return el.reason || el.value;
+    });
+
+    const isWin = result.every(el => el === '🤑');
+
+    if (isWin) {
+      resultEl.textContent = '🤑Winner🤑';
+    } else {
+      resultEl.textContent = '👿Loser👿';
+    }
+  });
+}
