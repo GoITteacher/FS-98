@@ -8,37 +8,25 @@ import './modules/user';
 
 //============================
 
-/* function fetchUsers() {
-  const BASE_URL = 'https://jsonplaceholder.typicode.com';
-  const END_POINT = '/users';
-  const url = BASE_URL + END_POINT;
-
-  return fetch(url).then(response => {
-    return response.json();
-  });
-}
-*/
-
-/* function fetchComments(postId) {
+/* function getCommentsByPostID(postId) {
   const BASE_URL = 'https://jsonplaceholder.typicode.com';
   const END_POINT = '/comments';
-  const PARAMS = `?postId=${postId}&userId=1`;
-
+  const PARAMS = `?postId=${postId}`;
   const url = BASE_URL + END_POINT + PARAMS;
 
   const options = {
     headers: {
-      'X-RapidAPI-Key': '2365176235176235',
-      'X-RapidAPI-Host': 'jsygedjaygdjawy',
+      test: 'Hello world',
+      test_123: 'test_123',
     },
   };
 
-  return fetch(url, options).then(response => {
-    return response.json();
-  });
+  return fetch(url, options).then(res => res.json());
 }
 
-fetchComments(5);
-fetchComments(1);
-fetchComments(10);
-fetchComments(21); */
+getCommentsByPostID(1).then(data=>{log})
+getCommentsByPostID(2);
+getCommentsByPostID(3);
+getCommentsByPostID(4); */
+
+// ====================================

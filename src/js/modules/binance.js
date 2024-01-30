@@ -7,20 +7,20 @@ refs.formEl.addEventListener('submit', onFormSubmit);
 
 function onFormSubmit(e) {
   e.preventDefault();
+  const query = e.target.elements.query.value;
 
-  const symbol = e.target.elements.query.value;
-
-  getPrice(symbol).then(data => {
-    const markup = symbolTemplate(data);
-    refs.infoEl.innerHTML = markup;
+  getPrice(query).then(data => {
+    renderSymbol(data);
   });
+
+  e.target.reset();
 }
 
 function getPrice(symbol) {
   const BASE_URL = 'https://binance43.p.rapidapi.com';
   const END_POINT = '/ticker/price';
-  const PARAMS = new URLSearchParams({ symbol });
-  const url = `${BASE_URL}${END_POINT}?${PARAMS}`;
+  const PARAMS = `?symbol=${symbol}`;
+  const url = BASE_URL + END_POINT + PARAMS;
 
   const options = {
     headers: {
@@ -29,17 +29,17 @@ function getPrice(symbol) {
     },
   };
 
-  return fetch(url, options).then(response => {
-    if (response.ok) {
-      return response.json();
-    } else {
-      return { symbol: 'Null', price: '0' };
-    }
-  });
+  return fetch(url, options).then(res => res.json());
 }
 
 function symbolTemplate({ price, symbol }) {
-  price = (+price).toFixed(2);
-  return `<span>${symbol}</span>
-  <span>${price}</span>`;
+  return `
+    <span>${symbol}</span>
+    <span>${price}</span>
+  `;
+}
+
+function renderSymbol(symbol) {
+  const markup = symbolTemplate(symbol);
+  refs.infoEl.innerHTML = markup;
 }

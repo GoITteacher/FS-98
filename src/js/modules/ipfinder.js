@@ -3,23 +3,23 @@ const refs = {
   cardInfo: document.querySelector('.js-ip-form'),
 };
 
-refs.formEl.addEventListener('submit', onFormSubmit);
-
-function onFormSubmit(e) {
+refs.formEl.addEventListener('submit', e => {
   e.preventDefault();
 
   const ip = e.target.elements.userip.value;
 
-  getInfoByIP(ip).then(data => {
+  findIp(ip).then(data => {
     renderIp(data);
   });
-}
 
-function getInfoByIP(ip) {
+  e.target.reset();
+});
+
+function findIp(ip) {
   const BASE_URL = 'https://ip-geolocation-ipwhois-io.p.rapidapi.com';
   const END_POINT = '/json/';
-  const PARAMS = new URLSearchParams({ ip });
-  const url = `${BASE_URL}${END_POINT}?${PARAMS}`;
+  const PARAMS = `?ip=${ip}`;
+  const url = BASE_URL + END_POINT + PARAMS;
 
   const options = {
     headers: {
@@ -28,13 +28,7 @@ function getInfoByIP(ip) {
     },
   };
 
-  return fetch(url, options).then(response => {
-    if (response.ok) {
-      return response.json();
-    } else {
-      console.log('ERROR');
-    }
-  });
+  return fetch(url, options).then(res => res.json());
 }
 
 function renderIp({
@@ -89,3 +83,5 @@ function renderIp({
 
   refs.cardInfo.innerHTML = markup;
 }
+
+findIp('134.249.171.77');

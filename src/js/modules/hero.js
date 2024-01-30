@@ -3,28 +3,20 @@ const refs = {
   heroEl: document.querySelector('.js-hero-container'),
 };
 
-refs.formEl.addEventListener('submit', onFormSubmit);
-
-function onFormSubmit(e) {
+refs.formEl.addEventListener('submit', e => {
   e.preventDefault();
 
   const name = e.target.elements.query.value;
 
-  fetchHero(name).then(hero => {
-    const markup = heroTemplate(hero);
-    refs.heroEl.insertAdjacentHTML('afterbegin', markup);
+  searchHero(name).then(data => {
+    renderHero(data);
   });
+});
 
-  e.target.reset();
-}
-
-function fetchHero(superhero) {
-  const BASE_URL = 'https://superhero-search.p.rapidapi.com';
-  const END_POINT = '/api/';
-  const PARAMS = new URLSearchParams({
-    hero: superhero,
-  });
-  const url = `${BASE_URL}${END_POINT}?${PARAMS}`;
+function searchHero(superhero) {
+  const BASE_URL = 'https://superhero-search.p.rapidapi.com/api/';
+  const PARAMS = `?hero=${superhero}`;
+  const url = BASE_URL + PARAMS;
 
   const options = {
     headers: {
@@ -33,13 +25,7 @@ function fetchHero(superhero) {
     },
   };
 
-  return fetch(url, options).then(response => {
-    if (response.ok) {
-      return response.json();
-    } else {
-      console.log('ERROR');
-    }
-  });
+  return fetch(url, options).then(res => res.json());
 }
 
 function heroTemplate(hero) {
@@ -58,4 +44,9 @@ function heroTemplate(hero) {
     </p>
   </div>
 </div>`;
+}
+
+function renderHero(hero) {
+  const markup = heroTemplate(hero);
+  refs.heroEl.insertAdjacentHTML('beforeend', markup);
 }
