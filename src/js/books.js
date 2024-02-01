@@ -1,6 +1,4 @@
-import { BookAPI } from './modules/booksAPI';
-
-// ===================================================
+import { BooksApi } from './modules/booksAPI';
 
 const refs = {
   createFormElem: document.querySelector('.js-create-form'),
@@ -9,90 +7,114 @@ const refs = {
   deleteFormElem: document.querySelector('.js-delete-form'),
   bookListElem: document.querySelector('.js-article-list'),
 };
-const booksApi = new BookAPI();
 
-// ===================================================
+const booksApi = new BooksApi();
+// =============================================
 
-refs.createFormElem.addEventListener('submit', onCreateBook);
-refs.updateFormElem.addEventListener('submit', onUpdateBook);
-refs.resetFormElem.addEventListener('submit', onResetBook);
-refs.deleteFormElem.addEventListener('submit', onDeleteBook);
+refs.createFormElem.addEventListener('submit', onBookCreate);
+refs.updateFormElem.addEventListener('submit', onBookUpdate);
+refs.resetFormElem.addEventListener('submit', onBookReset);
+refs.deleteFormElem.addEventListener('submit', onBookDelete);
+refs.bookListElem.addEventListener('click', onBookClick);
+refs.bookListElem.addEventListener('click', onBookDeleteClick);
 
-// ===================================================
-
-function onCreateBook(e) {
+function onBookCreate(e) {
   e.preventDefault();
+  const formData = new FormData(e.target);
+  const book = {};
 
-  const book = {
-    title: e.target.elements.bookTitle.value,
-    author: e.target.elements.bookAuthor.value,
-    desc: e.target.elements.bookDesc.value,
-  };
+  formData.forEach((value, key) => {
+    key = key.toLowerCase().slice(4);
+    book[key] = value;
+  });
 
-  booksApi.createBook(book).then(createdBook => {
-    const markup = bookTemplate(createdBook);
+  booksApi.createBook(book).then(newBook => {
+    const markup = bookTemplate(newBook);
     refs.bookListElem.insertAdjacentHTML('afterbegin', markup);
   });
 
   e.target.reset();
 }
-
-function onUpdateBook(e) {
+function onBookUpdate(e) {
   e.preventDefault();
 
-  const book = {
-    id: e.target.elements.bookId.value,
-    title: e.target.elements.bookTitle.value || undefined,
-    author: e.target.elements.bookAuthor.value || undefined,
-    desc: e.target.elements.bookDesc.value || undefined,
-  };
+  const formData = new FormData(e.target);
+  const book = {};
+
+  formData.forEach((value, key) => {
+    key = key.toLowerCase().slice(4);
+    if (value) book[key] = value;
+  });
 
   booksApi.updateBook(book).then(updatedBook => {
-    const oldBook = document.querySelector(`[data-id="${book.id}"]`);
-    oldBook.insertAdjacentHTML('afterend', bookTemplate(updatedBook));
-    oldBook.remove();
+    const oldElem = document.querySelector(`[data-id="${book.id}"]`);
+    const markup = bookTemplate(updatedBook);
+    oldElem.insertAdjacentHTML('afterend', markup);
+    oldElem.remove();
   });
 
   e.target.reset();
 }
-
-function onResetBook(e) {
+function onBookReset(e) {
   e.preventDefault();
 
-  const book = {
-    id: e.target.elements.bookId.value,
-    title: e.target.elements.bookTitle.value,
-    author: e.target.elements.bookAuthor.value,
-    desc: e.target.elements.bookDesc.value,
-  };
+  const formData = new FormData(e.target);
+  const book = {};
+
+  formData.forEach((value, key) => {
+    key = key.toLowerCase().slice(4);
+    book[key] = value;
+  });
 
   booksApi.resetBook(book).then(updatedBook => {
-    const oldBook = document.querySelector(`[data-id="${book.id}"]`);
-    oldBook.insertAdjacentHTML('afterend', bookTemplate(updatedBook));
-    oldBook.remove();
+    const oldElem = document.querySelector(`[data-id="${book.id}"]`);
+    const markup = bookTemplate(updatedBook);
+    oldElem.insertAdjacentHTML('afterend', markup);
+    oldElem.remove();
   });
+
   e.target.reset();
 }
-
-function onDeleteBook(e) {
+function onBookDelete(e) {
   e.preventDefault();
   const id = e.target.elements.bookId.value;
-
   booksApi.deleteBook(id).then(() => {
-    const oldBook = document.querySelector(`[data-id="${id}"]`);
-    oldBook.remove();
+    const oldBookElem = document.querySelector(`[data-id="${id}"]`);
+    oldBookElem.remove();
   });
-
   e.target.reset();
 }
+function onBookClick(e) {
+  if (e.target === e.currentTarget) return;
+  const liElem = e.target.closest('li');
+  const id = liElem.dataset.id;
 
-// ===================================================
+  refs.updateFormElem.elements.bookId.value = id;
+  refs.resetFormElem.elements.bookId.value = id;
+  refs.deleteFormElem.elements.bookId.value = id;
 
+  if (e.shiftKey) {
+    booksApi.deleteBook(id);
+    liElem.remove();
+  }
+}
+function onBookDeleteClick(e) {
+  if (e.target.nodeName !== 'BUTTON') return;
+
+  const liElem = e.target.closest('li');
+  const id = liElem.dataset.id;
+
+  booksApi.deleteBook(id);
+  liElem.remove();
+}
+
+// =============================================
 function bookTemplate({ id, title, author, desc }) {
   return `<li class="card book-item" data-id="${id}">
-  <h3>${id} - ${title}</h3>
+  <h4>${id} - ${title}</h4>
   <p>${desc}</p>
   <p>${author}</p>
+  <button>delete</button>
 </li>`;
 }
 
@@ -101,10 +123,22 @@ function booksTemplate(books) {
 }
 
 function renderBooks(books) {
-  const markup = booksTemplate(books);
+  const markup = booksTemplate(books.reverse());
   refs.bookListElem.innerHTML = markup;
 }
 
-// ===================================================
+booksApi.getBooks().then(renderBooks).catch(onError);
 
-booksApi.getBooks().then(renderBooks);
+function onError(err) {
+  console.log(err.message);
+  switch (err.message) {
+    case '404':
+      console.log('Ahahahaha');
+      break;
+    case '401':
+      console.log('Your Password - 123123');
+      break;
+    default:
+      console.log('Я такого не знаю');
+  }
+}

@@ -1,30 +1,38 @@
-export class BookAPI {
-  static BASE_URL = 'http://localhost:3000';
-  static END_POINT = '/books';
-
-  constructor() {}
-
-  getBooks() {
-    const url = `${BookAPI.BASE_URL}${BookAPI.END_POINT}`;
-    return fetch(url).then(res => res.json());
+export class BooksApi {
+  constructor() {
+    this.BASE_URL = 'http://localhost:3000';
+    this.END_POINT = '/books';
   }
 
-  createBook(newBook) {
-    const url = `${BookAPI.BASE_URL}${BookAPI.END_POINT}`;
+  getBooks() {
+    const url = this.BASE_URL + this.END_POINT;
+
+    return fetch(url).then(res => {
+      if (res.ok) {
+        return res.json();
+      } else {
+        const myError = new Error(`${res.status}`);
+        throw myError;
+      }
+    });
+  }
+
+  createBook(book) {
+    const url = this.BASE_URL + this.END_POINT;
 
     const options = {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
       },
-      body: JSON.stringify(newBook),
+      body: JSON.stringify(book),
     };
 
     return fetch(url, options).then(res => res.json());
   }
 
   updateBook({ id, ...book }) {
-    const url = `${BookAPI.BASE_URL}${BookAPI.END_POINT}/${id}`;
+    const url = `${this.BASE_URL}${this.END_POINT}/${id}`;
 
     const options = {
       method: 'PATCH',
@@ -36,9 +44,8 @@ export class BookAPI {
 
     return fetch(url, options).then(res => res.json());
   }
-
   resetBook({ id, ...book }) {
-    const url = `${BookAPI.BASE_URL}${BookAPI.END_POINT}/${id}`;
+    const url = `${this.BASE_URL}${this.END_POINT}/${id}`;
 
     const options = {
       method: 'PUT',
@@ -52,7 +59,7 @@ export class BookAPI {
   }
 
   deleteBook(id) {
-    const url = `${BookAPI.BASE_URL}${BookAPI.END_POINT}/${id}`;
+    const url = `${this.BASE_URL}${this.END_POINT}/${id}`;
 
     const options = {
       method: 'DELETE',
