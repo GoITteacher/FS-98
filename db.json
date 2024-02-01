@@ -1,0 +1,153 @@
+{
+  "books": [
+    {
+      "id": "6d63",
+      "title": "eos quis nisi",
+      "author": "Tabitha Armstrong",
+      "desc": "Quis rerum ut fuga voluptas eligendi ut enim modi. Enim tempora laboriosam quis aut non. Repellendus voluptatem rerum quis est rerum est voluptatem aliquam nisi. Ex ad enim velit. Voluptatum nemo et impedit sapiente qui iure. Et molestias illum nostrum excepturi placeat dolore deserunt voluptatem."
+    },
+    {
+      "id": "4d55",
+      "title": "distinctio quia ut",
+      "author": "Krystal Davis",
+      "desc": "Id qui deleniti voluptates atque sapiente nobis blanditiis. Eligendi laboriosam fuga nihil iusto hic est repellendus quaerat. Quia ut ipsa corrupti ipsum debitis ut. Veniam rem sit non laboriosam praesentium nulla. Aspernatur soluta atque consequatur voluptatem rerum. Et ratione at id."
+    },
+    {
+      "id": "572e",
+      "title": "dolor ipsam enim",
+      "author": "Brenda Kuphal",
+      "desc": "Cupiditate blanditiis voluptas atque iure deleniti. Alias cupiditate ex aut quia quasi quia error repellendus. Est quasi quas est non et sit amet. Voluptatum quisquam vel quae laboriosam veniam quas."
+    },
+    {
+      "id": "f7d7",
+      "title": "neque minus et",
+      "author": "Gail Reilly",
+      "desc": "Veniam id eius consequatur officiis placeat et tempora in saepe. Consequatur unde excepturi deserunt molestiae consectetur non illo nesciunt. Sunt et et harum et et dolor accusamus."
+    },
+    {
+      "id": "4660",
+      "title": "inventore sed minus",
+      "author": "My Author",
+      "desc": "Quis magnam id est rerum enim excepturi reiciendis enim. Facilis ad totam fugit dolores ex magnam totam error. Dolorem nostrum libero doloribus commodi id omnis. Vel blanditiis quaerat qui velit et et dolor."
+    },
+    {
+      "id": "ecdb",
+      "title": "minima ea soluta",
+      "author": "Naomi Shields",
+      "desc": "Illo qui itaque nihil sunt cum. Excepturi consequatur laborum numquam. Rerum iusto rerum est non provident qui sed aut. Ipsum rerum et sapiente sapiente repellat dolore vitae dolor. Commodi ut dolorem."
+    },
+    {
+      "id": "9ac3",
+      "title": "in dolor omnis",
+      "author": "Norma Rippin",
+      "desc": "Officia assumenda deleniti qui voluptatem blanditiis doloremque aut aliquam quis. Aliquam atque autem odio vel eius nostrum explicabo. Distinctio minus ea voluptatem fugit vel dolore veritatis. Fugit aut ipsa ab voluptate."
+    },
+    {
+      "id": "95a0",
+      "title": "eum et delectus",
+      "author": "Miss Ira Konopelski",
+      "desc": "Nulla dolore quae hic voluptates in. Culpa eum voluptas distinctio aspernatur aut et. Vitae sapiente dicta ut. Maxime ut et laudantium. Iusto excepturi vitae temporibus voluptatum quidem enim eaque rerum ipsum. Praesentium rerum qui ipsum voluptate in natus."
+    },
+    {
+      "id": "6e82",
+      "title": "itaque nulla nam",
+      "author": "Ebony Johns",
+      "desc": "Et veritatis veniam non corrupti reprehenderit consequatur vitae et et. Ratione repellat est dolor possimus in aut. Omnis odit voluptas. Non beatae odio est veniam accusantium. Quisquam sit quaerat recusandae vel odio maiores aperiam voluptas expedita. Adipisci similique illo voluptate."
+    }
+  ],
+  "users": [
+    {
+      "name": "Erma Pacocha",
+      "phone": "366-695-8386",
+      "email": "Renee_Grimes79@yahoo.com",
+      "avatar": "https://cdn.fakercloud.com/avatars/chaabane_wail_128.jpg",
+      "id": "1"
+    },
+    {
+      "name": "James Ondricka",
+      "phone": "300-357-6958",
+      "email": "Sadie83@yahoo.com",
+      "avatar": "https://cdn.fakercloud.com/avatars/eddiechen_128.jpg",
+      "id": "2"
+    },
+    {
+      "name": "Harold Mante",
+      "phone": "515-934-4190",
+      "email": "Luella.Heller29@yahoo.com",
+      "avatar": "https://cdn.fakercloud.com/avatars/namankreative_128.jpg",
+      "id": "3"
+    },
+    {
+      "name": "Mr. Angelina Lynch",
+      "phone": "457-238-5739",
+      "email": "Sarah_Collier43@yahoo.com",
+      "avatar": "https://cdn.fakercloud.com/avatars/lu4sh1i_128.jpg",
+      "id": "4"
+    },
+    {
+      "name": "Ms. Danielle Schaefer",
+      "phone": "676-406-4378",
+      "email": "Charity.Conn16@yahoo.com",
+      "avatar": "https://cdn.fakercloud.com/avatars/netonet_il_128.jpg",
+      "id": "5"
+    },
+    {
+      "name": "Cheryl Kunze",
+      "phone": "430-676-9640",
+      "email": "Kennith_Rohan@hotmail.com",
+      "avatar": "https://cdn.fakercloud.com/avatars/chatyrko_128.jpg",
+      "id": "6"
+    },
+    {
+      "name": "Harvey Lehner",
+      "phone": "804-794-4790",
+      "email": "Ezequiel_Fritsch@gmail.com",
+      "avatar": "https://cdn.fakercloud.com/avatars/michaelbrooksjr_128.jpg",
+      "id": "7"
+    },
+    {
+      "name": "Shawna Balistreri MD",
+      "phone": "408-201-0870",
+      "email": "Hilton.Green@gmail.com",
+      "avatar": "https://cdn.fakercloud.com/avatars/vitor376_128.jpg",
+      "id": "8"
+    },
+    {
+      "name": "Rita Gibson",
+      "phone": "686-982-0614",
+      "email": "Magnus.Nikolaus@gmail.com",
+      "avatar": "https://cdn.fakercloud.com/avatars/jamiebrittain_128.jpg",
+      "id": "9"
+    },
+    {
+      "name": "Volodka",
+      "phone": "456-335-4567",
+      "email": "hjello@gmail.com",
+      "avatar": "test",
+      "id": "10"
+    },
+    {
+      "name": "Max",
+      "phone": "245-345-45645",
+      "email": "andrii@gmail.com",
+      "avatar": "test",
+      "id": "11"
+    },
+    {
+      "name": "Roman",
+      "phone": "2334-345-546",
+      "email": "romantika@gmail.com",
+      "avatar": "test",
+      "id": "12"
+    }
+  ],
+  "rooms": [],
+  "movies": [],
+  "games": [
+    {
+      "title": "test",
+      "price": 200,
+      "id": "19fe"
+    }
+  ]
+}
