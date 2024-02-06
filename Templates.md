@@ -8,7 +8,11 @@
 
 ```html
 <li class="card user-item" data-id="${id}">
-  <img src="${url}" alt="#" class="user-avatar" />
+  <img
+    src="https://source.unsplash.com/500x500/?random=1&portret,man,woman"
+    alt="#"
+    class="user-avatar"
+  />
   <h3>${name}</h3>
   <p>${email}</p>
   <p>${phone}</p>
