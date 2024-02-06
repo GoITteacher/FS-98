@@ -16,7 +16,6 @@ export class BooksApi {
       }
     });
   }
-
   createBook(book) {
     const url = this.BASE_URL + this.END_POINT;
 
@@ -30,7 +29,6 @@ export class BooksApi {
 
     return fetch(url, options).then(res => res.json());
   }
-
   updateBook({ id, ...book }) {
     const url = `${this.BASE_URL}${this.END_POINT}/${id}`;
 
@@ -57,7 +55,6 @@ export class BooksApi {
 
     return fetch(url, options).then(res => res.json());
   }
-
   deleteBook(id) {
     const url = `${this.BASE_URL}${this.END_POINT}/${id}`;
 

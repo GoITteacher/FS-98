@@ -9,25 +9,11 @@
       "id": "1"
     },
     {
-      "name": "James Ondricka",
-      "phone": "300-357-6958",
-      "email": "Sadie83@yahoo.com",
-      "avatar": "https://cdn.fakercloud.com/avatars/eddiechen_128.jpg",
-      "id": "2"
-    },
-    {
       "name": "Harold Mante",
       "phone": "515-934-4190",
       "email": "Luella.Heller29@yahoo.com",
       "avatar": "https://cdn.fakercloud.com/avatars/namankreative_128.jpg",
       "id": "3"
-    },
-    {
-      "name": "Mr. Angelina Lynch",
-      "phone": "457-238-5739",
-      "email": "Sarah_Collier43@yahoo.com",
-      "avatar": "https://cdn.fakercloud.com/avatars/lu4sh1i_128.jpg",
-      "id": "4"
     },
     {
       "name": "Ms. Danielle Schaefer",
@@ -84,6 +70,36 @@
       "email": "romantika@gmail.com",
       "avatar": "test",
       "id": "12"
+    },
+    {
+      "email": "test@gmail.com",
+      "phone": "12324352",
+      "name": "Volodak",
+      "id": "kCztQSN"
+    },
+    {
+      "email": "awdawd",
+      "phone": "sefsef",
+      "name": "awdawd",
+      "id": "SU5JblZ"
+    },
+    {
+      "email": "test@gmail.com",
+      "phone": "+38099123344",
+      "name": "Volodka",
+      "id": "KzyHM8l"
+    },
+    {
+      "email": "awdaw",
+      "phone": "aef",
+      "name": "awd",
+      "id": "1BPvBH-"
+    },
+    {
+      "email": "awd",
+      "phone": "awd",
+      "name": "sef",
+      "id": "D0IWvO5"
     }
   ],
   "rooms": [],
