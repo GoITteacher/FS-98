@@ -27,19 +27,21 @@
 
     <ul class="news-list js-article-list"></ul>
 
-    <button
-      type="button"
-      class="btn btn-primary button js-btn-load"
-      data-action="load-more"
-    >
+    <div>
+      <button
+        type="button"
+        class="btn btn-primary button js-btn-load hidden"
+        data-action="load-more"
+      >
+        <span class="label">Load more</span>
+      </button>
+
       <span
-        class="js-loader spinner-border spinner-border-sm spinner is-hidden"
+        class="js-loader spinner-border spinner-border-sm spinner"
         role="status"
         aria-hidden="true"
       ></span>
-
-      <span class="label">Load more</span>
-    </button>
+    </div>
 
     <script src="../js/01-script.js" type="module"></script>
   </body>

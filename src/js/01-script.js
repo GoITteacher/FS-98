@@ -1,6 +1,6 @@
+import iziToast from 'izitoast';
+import 'izitoast/dist/css/iziToast.min.css';
 import { NewsAPI } from './modules/newsAPI';
-
-const newsApi = new NewsAPI();
 
 const refs = {
   formElem: document.querySelector('.js-search-form'),
@@ -9,65 +9,50 @@ const refs = {
   loadElem: document.querySelector('.js-loader'),
 };
 
+const newsApi = new NewsAPI();
+
+// ==========================================
 refs.formElem.addEventListener('submit', onFormSubmit);
-refs.btnLoadMore.addEventListener('click', onLoadMoreClick);
 
 async function onFormSubmit(e) {
   e.preventDefault();
-  const query = e.target.elements.query.value;
-  newsApi.query = query;
+  showSpinner();
+
+  const query = e.target.elements.query.value.trim();
   newsApi.page = 1;
-  showLoader();
+  newsApi.query = query;
+  refs.articleListElem.innerHTML = '';
+  try {
+    const data = await newsApi.getArticles();
+    newsApi.totalResult = data.totalResults;
+    renderArticles(data.articles);
+  } catch (err) {
+    newsApi.totalResult = 0;
+    iziToast.error({
+      title: 'Error',
+      message: err.message,
+    });
+  }
 
-  const result = await newsApi.fetchArticles();
-  const markup = articlesTemplate(result.articles);
-  refs.articleListElem.innerHTML = markup;
-  newsApi.totalResults = result.totalResults;
-
-  hideLoader();
-  changeBtnStatus();
-  e.target.reset();
+  checkBtnStatus();
+  hideSpinner();
 }
+// ==========================================
+
+refs.btnLoadMore.addEventListener('click', onLoadMoreClick);
 
 async function onLoadMoreClick() {
+  showSpinner();
   newsApi.page += 1;
-  showLoader();
-
-  const result = await newsApi.fetchArticles();
-  const markup = articlesTemplate(result.articles);
-  refs.articleListElem.insertAdjacentHTML('beforeend', markup);
-
-  hideLoader();
-  changeBtnStatus();
+  const data = await newsApi.getArticles();
+  renderArticles(data.articles);
+  checkBtnStatus();
+  hideSpinner();
 }
 
-function changeBtnStatus() {
-  const maxPage = Math.ceil(newsApi.totalResults / newsApi.pageSize);
-
-  refs.btnLoadMore.disabled = newsApi.page >= maxPage;
-
-  /* if (newsApi.page >= maxPage) {
-    refs.btnLoadMore.classList.add('hidden');
-  } else {
-    refs.btnLoadMore.classList.remove('hidden');
-  } */
-}
-
-function showLoader() {
-  refs.loadElem.classList.remove('is-hidden');
-}
-function hideLoader() {
-  refs.loadElem.classList.add('is-hidden');
-}
-
-// ===============================================
-function articleTemplate({
-  urlToImage,
-  title,
-  description,
-  author,
-  publishedAt,
-}) {
+// ==========================================
+function articleTemplate(article) {
+  const { urlToImage, title, description, author, publishedAt } = article;
   return `<li class="card news-card">
   <img loading="lazy"
     class="news-image"
@@ -84,9 +69,46 @@ function articleTemplate({
     <span>${author}</span>
     <span>${publishedAt}</span>
   </div>
-</li>`;
+</li>
+`;
 }
 
 function articlesTemplate(articles) {
   return articles.map(articleTemplate).join('');
+}
+
+function renderArticles(articles) {
+  const markup = articlesTemplate(articles);
+  refs.articleListElem.insertAdjacentHTML('beforeend', markup);
+}
+// ==========================================
+
+/* function checkBtnStatus() {
+  const maxPage = Math.ceil(newsApi.totalResult / NewsAPI.PAGE_SIZE);
+  const isLastPage = maxPage === newsApi.page;
+  refs.btnLoadMore.disabled = isLastPage;
+} */
+
+function checkBtnStatus() {
+  console.log(newsApi.totalResult);
+  console.log(newsApi.page);
+  const maxPage = Math.ceil(newsApi.totalResult / NewsAPI.PAGE_SIZE);
+  const isLastPage = maxPage <= newsApi.page;
+  if (isLastPage) {
+    refs.btnLoadMore.classList.add('hidden');
+  } else {
+    refs.btnLoadMore.classList.remove('hidden');
+  }
+}
+
+// =======================
+
+function showSpinner() {
+  refs.loadElem.classList.remove('hidden');
+  refs.btnLoadMore.classList.add('hidden');
+}
+
+function hideSpinner() {
+  refs.loadElem.classList.add('hidden');
+  refs.btnLoadMore.classList.remove('hidden');
 }

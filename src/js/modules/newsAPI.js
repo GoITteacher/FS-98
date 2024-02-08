@@ -1,26 +1,30 @@
 import axios from 'axios';
 
 export class NewsAPI {
-  static BASE_URL = 'https://newsapi.org/v2';
+  static PAGE_SIZE = 30;
 
   constructor() {
-    this.query = 'Default';
+    this.BASE_URL = 'https://newsapi.org/v2';
+    this.END_POINT = '/everything';
+    this.query = null;
     this.page = 1;
-    this.pageSize = 20;
-    this.totalResults = 0;
+    this.totalResult = 0;
   }
 
-  fetchArticles() {
-    const END_POINT = '/everything';
-    const url = NewsAPI.BASE_URL + END_POINT;
-
+  getArticles() {
     const params = {
-      q: this.query,
-      page: this.page,
-      pageSize: this.pageSize,
       apiKey: 'c8747511a2c34730a83caaff4f3693e7',
+      q: this.query,
+      pageSize: NewsAPI.PAGE_SIZE,
+      page: this.page,
     };
-
-    return axios.get(url, { params }).then(res => res.data);
+    const url = `${this.BASE_URL}${this.END_POINT}`;
+    return axios.get(url, { params }).then(res => {
+      if (res.data.articles.length === 0) {
+        throw new Error('Empty');
+      } else {
+        return res.data;
+      }
+    });
   }
 }
