@@ -101,7 +101,7 @@ function checkBtnStatus() {
   }
 }
 
-// =======================
+// ==========================================
 
 function showSpinner() {
   refs.loadElem.classList.remove('hidden');
