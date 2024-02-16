@@ -2,7 +2,6 @@ import { getPokemons, getPokemonInfo } from './modules/pokemonApi';
 const url = `https://pokeapi.co/api/v2/pokemon?limit=8&offset=0`;
 
 const refs = {
-  formElem: document.querySelector('.js-search-form'),
   pokemonListElem: document.querySelector('.js-pokemon-list'),
   prevBtnElem: document.querySelector('.js-btn-prev'),
   nextBtnElem: document.querySelector('.js-btn-next'),
@@ -11,14 +10,9 @@ const refs = {
 let nextUrl = '';
 let prevUrl = '';
 
-refs.formElem.addEventListener('submit', onFormSubmit);
-
-function onFormSubmit(e) {
-  e.preventDefault();
-  getPokemons(url).then(data => {
-    loadPokemonData(data);
-  });
-}
+getPokemons(url).then(data => {
+  loadPokemonData(data);
+});
 
 function pokemonTemplate({
   sprites,
@@ -85,5 +79,3 @@ function loadPokemonData(data) {
     renderPokemon(pokemonList);
   });
 }
-
-// =========
